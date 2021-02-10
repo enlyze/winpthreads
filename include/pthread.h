@@ -66,6 +66,7 @@
 #include <process.h>
 #include <limits.h>
 #include <signal.h>
+#include <time.h>
 
 #include <sys/timeb.h>
 
