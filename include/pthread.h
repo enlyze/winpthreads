@@ -218,6 +218,10 @@ struct _pthread_cleanup
 /* Windows doesn't have this, so declare it ourselves. */
 #ifndef _TIMESPEC_DEFINED
 #define _TIMESPEC_DEFINED
+
+// [Colin Finck, 2021-02-10] The Visual Studio 2019 CRT defines struct timespec
+// without defining _TIMESPEC_DEFINED, so disable this part.
+#if 0
 struct timespec {
   time_t  tv_sec;   /* Seconds */
   long    tv_nsec;  /* Nanoseconds */
@@ -227,6 +231,8 @@ struct itimerspec {
   struct timespec  it_interval;  /* Timer period */
   struct timespec  it_value;     /* Timer expiration */
 };
+#endif
+
 #endif
 
 #ifndef SCHED_OTHER
